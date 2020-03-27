@@ -1,0 +1,22 @@
+<h1>Edit</h1>
+<%= form_for(@book) do |book| %>
+    <% if @book.errors.any? %>
+        <h3><%= @book.errors.count %>error prohibited this book form being saved:</h3>
+        <ul>
+            <% @book.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+        </ul>
+    <% end %>
+    <div>
+    <h4>タイトル</h4>
+    <%= book.text_field :title %>
+    </div>
+    <div>
+    <h4>本文</h4>
+    <%= book.text_area :body %>
+    </div>
+    <div>
+    <%= book.submit '保存' %>
+    </div>
+<% end %>
